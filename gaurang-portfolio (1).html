@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaurang Puri</title>
+<meta name="description" content="final-year cs student, builder">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root{
+    --bg:#0b0a08;
+    --ink:#f3f0e8;
+    --ink-soft:#8f8a7c;
+    --line:#211f1a;
+    --accent:#d8a94c;
+    --accent-dim:#4a4023;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased;}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', ui-sans-serif, sans-serif;
+    font-size:16px;
+    line-height:1.7;
+  }
+
+  .mono{font-family:'JetBrains Mono', ui-monospace, monospace;}
+
+  a{ color:var(--ink); text-decoration-color:var(--ink-soft); text-underline-offset:3px; }
+  a:hover{ text-decoration-color:var(--accent); }
+  a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+  .wrap{
+    max-width:680px;
+    margin:0 auto;
+    padding:80px 24px 160px;
+  }
+
+  header.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+    margin-bottom:56px;
+  }
+
+  h1{
+    font-size:clamp(32px, 6vw, 44px);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    margin:0 0 4px;
+    line-height:1.1;
+  }
+
+  .tagline{
+    color:var(--ink-soft);
+    margin:0 0 10px;
+    font-size:15px;
+  }
+
+  .counter{
+    color:var(--ink-soft);
+    font-size:14px;
+    font-variant-numeric:tabular-nums;
+  }
+  .counter .num{ color:var(--accent); font-weight:500; }
+
+  /* abstract avatar mark */
+  .avatar{
+    flex-shrink:0;
+    width:84px;height:84px;
+    border-radius:50%;
+    background:#000;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .avatar svg{ width:60%; height:60%; }
+  .avatar .shard{
+    transform-origin:50px 50px;
+    animation:spin 22s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .avatar .shard{ animation:none; } }
+
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  section{ margin-bottom:52px; }
+
+  h2{
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-size:13px;
+    font-weight:500;
+    color:var(--ink-soft);
+    margin:0 0 18px;
+  }
+
+  p{ margin:0 0 14px; color:var(--ink); }
+  p.muted{ color:var(--ink-soft); }
+  p:last-child{ margin-bottom:0; }
+
+  .quote{
+    margin-top:22px;
+    padding-left:16px;
+    border-left:2px solid var(--accent);
+    font-size:16px;
+    color:var(--ink);
+  }
+
+  .skills{
+    display:flex; flex-wrap:wrap; gap:5px;
+  }
+  .skills span{
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-size:10px;
+    color:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:2px 8px;
+  }
+  .skills span.fun{
+    color:var(--accent);
+    border-color:var(--accent-dim);
+  }
+
+  .contact-line{
+    display:flex; align-items:center; gap:10px;
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-size:14px;
+  }
+  .contact-line a{ color:var(--ink); text-decoration:underline; }
+
+  /* floating dock */
+  .dock{
+    position:fixed;
+    left:50%; bottom:28px;
+    transform:translateX(-50%);
+    display:flex; gap:6px;
+    background:#141210;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:8px;
+    box-shadow:0 12px 30px rgba(0,0,0,.45);
+    z-index:10;
+  }
+  .dock a{
+    width:38px;height:38px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink-soft);
+    transition:background .15s ease, color .15s ease;
+  }
+  .dock a:hover{ background:var(--accent-dim); color:var(--accent); }
+  .dock svg{ width:17px; height:17px; }
+
+  .brand{
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:0.03em;
+    color:var(--accent);
+    border:1.5px solid var(--accent-dim);
+    border-radius:9px;
+    width:42px;height:42px;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:24px;
+    background:linear-gradient(160deg, var(--accent-dim), transparent);
+  }
+
+  footer.site-footer{
+    margin-top:60px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+
+  ::selection{ background:var(--accent); color:#0b0a08; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="brand">GP</div>
+
+  <header class="top">
+    <div>
+      <h1>hi, gaurang here</h1>
+      <p class="tagline">final-year cs student · builder</p>
+      <p class="counter">been here for <span class="num mono" id="age">…</span> years and keep counting</p>
+    </div>
+
+    <div class="avatar" aria-hidden="true">
+      <svg viewBox="0 0 100 100" class="shard">
+        <g fill="none" stroke="#f3f0e8" stroke-width="3" stroke-linecap="round">
+          <line x1="50" y1="8"  x2="50" y2="26"/>
+          <line x1="50" y1="74" x2="50" y2="92"/>
+          <line x1="8"  y1="50" x2="26" y2="50"/>
+          <line x1="74" y1="50" x2="92" y2="50"/>
+          <line x1="19" y1="19" x2="32" y2="32"/>
+          <line x1="68" y1="68" x2="81" y2="81"/>
+          <line x1="81" y1="19" x2="68" y2="32"/>
+          <line x1="32" y1="68" x2="19" y2="81"/>
+        </g>
+        <circle cx="50" cy="50" r="12" fill="#d8a94c"/>
+      </svg>
+    </div>
+  </header>
+
+  <section>
+    <h2>about</h2>
+    <p>tldr; i turn caffeine and open tabs into things that actually run in production.</p>
+    <p class="muted">started writing code just to see what would happen. never really stopped. these days i build systems that handle real users, real data, and real deadlines — and i still get the same rush from a green build i got from my first "hello world."</p>
+    <p class="muted">i'd rather ship something imperfect today than something perfect never. most of what i know, i learned by breaking it first.</p>
+    <p class="quote">"practice like you never won, behave like you never lost."</p>
+  </section>
+
+  <section>
+    <h2>skills</h2>
+    <p class="skills">
+      <span>react</span><span>typescript</span><span>node.js</span>
+      <span>express</span><span>mongodb</span><span>docker</span>
+      <span>python</span><span>data science</span><span>pandas</span>
+      <span>machine learning</span><span>llm integration</span>
+      <span>prompt engineering</span><span>sql</span>
+      <span class="fun">can debug at 3am without crying</span>
+      <span class="fun">survives on 4 hrs sleep + coffee</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>contact</h2>
+    <p class="contact-line">✉ <a href="mailto:gaurangpuri007@gmail.com">Email</a></p>
+    <p class="contact-line">⌥ <a href="https://github.com/gaurangpurii" target="_blank" rel="noopener">GitHub</a></p>
+    <p class="contact-line">in <a href="https://www.linkedin.com/in/gaurangpuri/" target="_blank" rel="noopener">LinkedIn</a></p>
+  </section>
+
+  <footer class="site-footer">© 2026 Gaurang Puri</footer>
+
+</div>
+
+<nav class="dock" aria-label="quick links">
+  <a href="#top" title="top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+  </a>
+  <a href="https://github.com/gaurangpurii" target="_blank" rel="noopener" title="github">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.5c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
+  </a>
+  <a href="https://www.linkedin.com/in/gaurangpuri/" target="_blank" rel="noopener" title="linkedin">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V21h-4V9z"/></svg>
+  </a>
+  <a href="mailto:gaurangpuri007@gmail.com" title="email">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+  </a>
+</nav>
+
+<script>
+  (function(){
+    var birth = new Date(2004, 9, 23, 17, 0, 0); // 23 Oct 2004, 5:00 PM
+    var el = document.getElementById('age');
+    var MS_PER_YEAR = 365.25 * 24 * 60 * 60 * 1000;
+    function tick(){
+      el.textContent = ((Date.now() - birth.getTime()) / MS_PER_YEAR).toFixed(9);
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+</script>
+
+</body>
+</html>
